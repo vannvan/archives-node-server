@@ -1,8 +1,8 @@
 'use strict'
 
 const Router = require('koa-router')
-const User = require('../controllers/user')
-const App = require('../controllers/app')
+// const User = require('../controllers/user')
+// const App = require('../controllers/app')
 
 module.exports = function(){
     var router = new Router({
@@ -10,13 +10,13 @@ module.exports = function(){
   })
 
   // user
-  router.post('/u/signup', App.hasBody, User.signup)
-  router.post('/u/update', App.hasBody, App.hasToken, User.update)
+  router.post('/u/signup')
+  // router.post('/u/update', App.hasBody, App.hasToken, User.update)
 
   // DB Interface test
-  router.get('/test/user/users',User.users)
-  router.post('/test/user/add',User.addUser)
-  router.post('/test/user/delete',User.deleteUser)
+  // router.get('/test/user/users',User.users)
+  // router.post('/test/user/add',User.addUser)
+  // router.post('/test/user/delete',User.deleteUser)
 
   return router
 }

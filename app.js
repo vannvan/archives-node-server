@@ -45,7 +45,6 @@ var walk = function(modelPath) {
     .forEach(function(file) {
       var filePath = path.join(modelPath, '/' + file)
       var stat = fs.statSync(filePath)
-
       if (stat.isFile()) {
         if (/(.*)\.(js|coffee)/.test(file)) {
           require(filePath)
@@ -63,7 +62,7 @@ walk(models_path)
  * 使用路由转发请求
  * @type {[type]}
  */
-const router = require('./app/router/cate')()
+  const router = require('./app/router/cate')()
 
 app
   .use(router.routes())

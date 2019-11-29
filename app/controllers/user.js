@@ -6,12 +6,12 @@
 */
 'use strict'
 
-var xss = require('xss')
+// var xss = require('xss')
 var mongoose =  require('mongoose')
 var User = mongoose.model('User')
 var uuid = require('uuid')
 // var userHelper = require('../dbhelper/userHelper')
-import userHelper from '../dbhelper/userHelper'
+// import userHelper from '../dbhelper/userHelper'
 
 /**
  * 注册新用户
@@ -24,7 +24,7 @@ exports.signup = async (ctx, next) => {
 	  phoneNumber: phoneNumber
 	}).exec()
   console.log(user)
-	
+
 	var verifyCode = Math.floor(Math.random()*10000+1)
   console.log(phoneNumber)
 	if (!user) {
@@ -103,7 +103,7 @@ exports.users = async (ctx, next) => {
   var data = await userHelper.findAllUsers()
   // var obj = await userHelper.findByPhoneNumber({phoneNumber : '13525584568'})
   // console.log('obj=====================================>'+obj)
-  
+
   ctx.body = {
     success: true,
     data
